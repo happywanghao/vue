@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    [v-cloak] { display: none }
+  </style>
+</head>
+<body>
+  <div id='app'>
+    <h1 v-once v-cloak >{{ `我的消息是: ${msg}` }}</h1>
+
+    <h2>{{msg}}</h2>
+    <p v-html='bb'></p>
+    <h1 v-if='show'>你不出来我出来</h1>
+    <h1 v-else>我在</h1>
+    <button >88888</button>
+    <template v-if="ok">
+      <button>hello</button>
+      <button v-show='0'>hello</button>
+      <button>hello</button>
+      <button>hello</button>
+    </template>
+    <ul>
+      <li v-for='(item,i) in todos' v-if="item.fil">{{i}}---{{item.todo}}</li>
+    </ul>
+    <ul>
+      <li v-for='(item,key,index) in obj'>{{item}}--{{key}}--{{index}}</li>
+    </ul>
+    <div>
+      <span v-for="n in 10">{{ n }}</span>
+    </div>
+  </div>
+  <script src='./vue.js'></script>
+  <script>
+    var vm=new Vue({
+      el:'#app',
+      data:{
+        msg:'hello,vue',
+        aa:'你好',
+        bb:'<span>我是span</span>',
+        show:0,
+        ok:1,
+        todos:[
+          {id:1,todo:'do1',fil:true},
+          {id:2,todo:'do2',fil:false},
+          {id:3,todo:'do3',fil:true},
+        ],
+        obj:{
+          name:'wanghao',
+          age:'24',
+          like:'run'
+        }
+
+      }
+    })
+    setTimeout(function() {
+      vm.msg='hello react'
+    },3000)
+  </script>
+</body>
+</html>
